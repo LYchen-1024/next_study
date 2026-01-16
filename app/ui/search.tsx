@@ -6,10 +6,11 @@ import { useDebouncedCallback } from 'use-debounce';
 
 export default function Search({ placeholder }: { placeholder: string }) {
   const searchParams = useSearchParams()
-  console.log('Search params:', searchParams.toString())
+  // console.log('Search params:', searchParams.toString())
   const pathname = usePathname()
   const { replace } = useRouter()
 
+  // 添加防抖，避免不必要的搜索请求
   const handleSearch = useDebouncedCallback((term: string)=>{
     // console.log(term)
     const params = new URLSearchParams(searchParams)
@@ -21,7 +22,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
     }
     console.log('params:', params.toString())
     replace(`${pathname}?${params.toString()}`);
-  },300)
+  },500)
 
   return (
     <div className="relative flex flex-1 flex-shrink-0">

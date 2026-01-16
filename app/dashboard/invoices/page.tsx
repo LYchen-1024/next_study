@@ -14,6 +14,7 @@ export default async function Page(props: {
   }>;
 }) {
     const searchParams = await props.searchParams;
+    // console.log('Search Params in Invoices Page:', searchParams?.page);
     const query = searchParams?.query || '';
     const currentPage = Number(searchParams?.page) || 1;
     const totalPages = await fetchInvoicesPages(query);
