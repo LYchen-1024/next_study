@@ -1,5 +1,4 @@
 import { lusitana } from '@/app/ui/fonts'
-import { Card } from '@/app/ui/dashboard/cards';
 import RevenueChart from '@/app/ui/dashboard/revenue-chart';
 import LatestInvoices from '@/app/ui/dashboard/latest-invoices';
 import { Suspense } from 'react';
@@ -20,7 +19,7 @@ export default async function Page() {
         </Suspense>
       </div>
       <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-4 lg:grid-cols-8">
-        {/* 使用suspense精细化控制流式数据获取 */}
+        {/* 使用suspense精细化控制,流式数据获取 */}
         <Suspense fallback={<RevenueChartSkeleton />}>
           <RevenueChart />
         </Suspense>

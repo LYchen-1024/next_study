@@ -18,8 +18,11 @@ export default function EditInvoiceForm({
   invoice: InvoiceForm;
   customers: CustomerField[];
 }) {
+  // 函数柯里化 由f(a,b,c) => f(a)(b)(c)
+  // 提前绑定id参数，this指向的null，后续调用时只需传入formData参数
   const updateInvoiceWithId = updateInvoice.bind(null, invoice.id);
   return (
+    // 这里调用的是柯里化后的函数，只需传入formData参数
     <form action={updateInvoiceWithId}>
       <div className="rounded-md bg-gray-50 p-4 md:p-6">
         {/* Customer Name */}
